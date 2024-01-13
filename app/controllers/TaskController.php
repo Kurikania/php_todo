@@ -30,11 +30,12 @@ class TaskController extends ApplicationController
         $taskId = $this->_getParam('id');
         // find task
         $task = new Task();
-        $task = $task->fetchOne((int) $taskId);
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $task = $task->fetchOne((int) $taskId);
             $this->view->__set('task', $task);
         } else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // implement save
+            $task->id = $_POST['id'];
             $task->title = $_POST['title'];
             $task->status = StatusEnum::fromValue((int) $_POST['status']);
             $task->save();
