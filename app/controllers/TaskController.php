@@ -1,0 +1,62 @@
+<?php
+class TaskController extends ApplicationController
+{
+    public function indexAction(): void
+    {
+        $tasks = new Task();
+        $tasks = $tasks->fetchAll();
+        $this->view->__set('tasks', $tasks);
+    }
+
+    public function createAction()
+    {
+        // create action can be post or get
+        $task = new Task();
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $this->view->__set('task', $task);
+        } else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // implement save
+            print_r($_POST);
+            // populate object, don't save from post directly
+            $task->title = $_POST['title'];
+            $task->status = StatusEnum::fromValue((int) $_POST['status']);
+            $task->save();
+            $this->redirect('/');
+        }
+    }
+
+    public function editAction()
+    {
+        $taskId = $this->_getParam('id');
+        // find task
+        $task = new Task();
+        $task = $task->fetchOne((int) $taskId);
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $this->view->__set('task', $task);
+        } else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // implement save
+            $task->title = $_POST['title'];
+            $task->status = StatusEnum::fromValue((int) $_POST['status']);
+            $task->save();
+            $this->redirect('/');
+        }
+    }
+
+    public function deleteAction()
+    {
+        $taskId = $this->_getParam('id');
+        $task = new Task();
+        // make sure there is the task
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+             $task->delete($taskId);
+
+            $this->redirect('/');
+        }
+    }
+    public function redirect($url, $permanent = false)
+    {
+        header('Location: ' . $url, true, $permanent ? 301 : 302);
+        exit();
+    }
+
+}
