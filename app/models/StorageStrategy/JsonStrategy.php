@@ -6,7 +6,7 @@ class JsonStrategy implements StorageStrategy
     private $db;
     public function fetchAll()
     {
-        $array = json_decode(file_get_contents(__DIR__ . '/'.$this->table.'.json'), true);
+        $array = json_decode(file_get_contents(ROOT_PATH .'/web/data/'.$this->table.'.json'), true);
         return $array;
     }
 
@@ -34,7 +34,7 @@ class JsonStrategy implements StorageStrategy
             $data['id'] = $this->getNextId();
             $items[] = $updateItem = $data;
         }
-        $res = $this->writeJson($items);
+        $this->writeJson($items);
         return $updateItem;
     }
     public function delete(int $id) {
@@ -61,6 +61,6 @@ class JsonStrategy implements StorageStrategy
 
     private function writeJson($tasks)
     {
-       return $result = file_put_contents(__DIR__ . '/'.$this->table.'.json', json_encode($tasks, JSON_PRETTY_PRINT));
+       $result = file_put_contents(ROOT_PATH .'/web/data/'.$this->table.'.json', json_encode($tasks, JSON_PRETTY_PRINT));
     }
 }
