@@ -35,12 +35,6 @@ function autoloader($className) {
 		else if (file_exists(ROOT_PATH . '/lib/' . $className . '.php')) {
 			require_once ROOT_PATH . '/lib/' . $className . '.php';
 		}
-        else if (file_exists(ROOT_PATH . '/app/models/enums/' . $className . '.php')) {
-            require_once ROOT_PATH . '/app/models/enums/'.$className.'.php';
-        }
-        else if (file_exists(ROOT_PATH . '/app/models/StorageStrategy/' . $className . '.php')) {
-            require_once ROOT_PATH . '/app/models/StorageStrategy/'.$className.'.php';
-        }
 		else {
 			require_once ROOT_PATH . '/app/models/'.$className.'.php';
 		}
