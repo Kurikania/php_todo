@@ -1,6 +1,13 @@
 <?php
 class TaskController extends ApplicationController
 {
+      public function listAction() 
+    {
+        $tasks = new Task();
+        $tasks = $tasks->fetchAll();
+        $this->view->__set('tasks', $tasks);
+    }
+  
     public function indexAction(): void
     {
         $tasks = new Task();

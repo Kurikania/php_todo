@@ -12,6 +12,7 @@
 $routes = array(
     '/' => 'task#index',
     '/task/create'  => 'task#create',
+    '/task/list' => 'task#list',
     '/task/delete'  => 'task#delete',
     '/task/view' => 'task#view',
     '/task/edit' => 'task#edit',
