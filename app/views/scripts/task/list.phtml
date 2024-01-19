@@ -10,10 +10,10 @@
             <li>
                 <br>
                     Tarea ID: <?= $task['id']; ?>, <br>
-                    Título: <?php echo $task['title']; ?>, <br>
-                    Usuario ID: <?php echo $task['user_id']; ?>, <br>
-                    Descripcion: <?php echo $task['description']; ?>, <br>
-                    Creado el: <?php echo $task['created_at']; ?>, <br>
+                    Título: <?= $task['title']; ?>, <br>
+                    Usuario ID: <?= $task['user_id'] ?? ''; ?>, <br>
+                    Descripcion: <?= $task['description'] ?? ''; ?>, <br>
+                    Creado el: <?= $task['created_at'] ?? ''; ?>, <br>
                     Estado de la tarea: <?= StatusEnum::fromValue( $task['status'])->label()  ?>, <br>
                     <section class="container mx-auto my-auto px-8">
                         <div class="text-center py-auto">
