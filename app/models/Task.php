@@ -7,6 +7,7 @@ class Task
     public int $id;
     public string $title;
     public int $user_id = 1;
+    public string $description;
     public string $created_at;
     public string $completed_at;
     public StatusEnum $status;

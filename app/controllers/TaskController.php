@@ -26,6 +26,7 @@ class TaskController extends ApplicationController
             print_r($_POST);
             // populate object, don't save from post directly
             $task->title = $_POST['title'];
+            $task->description = $_POST['description'];
             $task->status = StatusEnum::fromValue((int) $_POST['status']);
             $task->save();
             $this->redirect('/');
@@ -48,6 +49,7 @@ class TaskController extends ApplicationController
             $task->created_at = $_POST['created_at'];
             $task->status = StatusEnum::fromValue((int) $_POST['status']);
             // todo add description and in class task too
+            $task->description = $_POST['description'];
             $task->save();
             $this->redirect('/');
         }
