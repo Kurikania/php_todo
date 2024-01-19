@@ -9,9 +9,9 @@ enum StatusEnum: int
     public function label(): string
     {
         return match($this) {
-            static::TODO => 'To do',
-            static::IN_PROGRESS => 'Active',
-            static::DONE => 'Done',
+            static::TODO => 'Pendiente',
+            static::IN_PROGRESS => 'En ejecución',
+            static::DONE => 'Hecho',
             static::CANCELLED => 'Canceled by user',
         };
     }

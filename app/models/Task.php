@@ -33,7 +33,7 @@ class Task
     }
 
     public function save() {
-        if(!empty($this->id)) {
+        if(empty($this->id)) {
             $this->created_at =  date('Y-m-d h:i:s');
         }
         if ( $this->status === StatusEnum::DONE) {
