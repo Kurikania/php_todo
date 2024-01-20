@@ -51,10 +51,10 @@
           <?php
                     foreach (StatusEnum::cases() as $case) {
                         if ($task['status'] == $case->value) {
-                            printf('<option selected="selected" value="%s">%s</option>\n', $case->value, $case->label());
+                            printf('<option class="%s" selected="selected" value="%s">%s</option>\n',$case->color(), $case->value, $case->label());
 
                         } else {
-                            printf('<option value="%s">%s</option>\n', $case->value, $case->label());
+                            printf('<option class="%s" value="%s">%s</option>\n',$case->color(), $case->value, $case->label());
                         }
                         
                     }

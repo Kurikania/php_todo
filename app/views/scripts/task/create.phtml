@@ -17,7 +17,7 @@
       <label class="bg-blue-400 mb-4 px-2 rounded" for="description">
         Descripción de la Tarea
       </label>
-      <textarea name="description" class="text-center shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" typr="text" placeholder="Descripción de la Tarea"></textarea>
+      <textarea name="description" class="text-center shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description"  placeholder="Descripción de la Tarea"></textarea>
     </div>
     <div class="bg-blue-200 mb-4 text-center">
       <label class="bg-blue-400 mb-4 px-2 rounded" for="username">
@@ -32,7 +32,7 @@
       <select name="status" class="text-center shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:bg-blue-200" id="task-status">
           <?php
                     foreach (StatusEnum::cases() as $case) {
-                        printf('<option value="%s">%s</option>\n', $case->value, $case->label());
+                        printf('<option class="%s" value="%s">%s</option>\n',$case->color(), $case->value, $case->label());
                     }
                 ?>
       </select>
