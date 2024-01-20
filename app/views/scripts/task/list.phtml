@@ -1,1 +1,49 @@
-<h1>hola mundo</h1>
+
+<main class="h-screen overflow-scroll">
+    <section class>
+        <div class="text-center space-y-2">
+            <p class="bg-blue-200">Lista de tareas</p>
+        </div>
+    </section>
+    <section class="text-center items-center justify-center">
+        <?php foreach ($this->_data['tasks'] as $key => $task) : ?>
+            <li>
+                <br>
+                    Tarea ID: <?= $task['id']; ?>, <br>
+                    Título: <?= $task['title']; ?>, <br>
+                    <div class="container mx-auto px-8">
+                        Descripcion: <?= $task['description'] ?? ''; ?>, <br>
+                    </div>
+                    Nombre de Usuario: <?= $task['username'] ?? ''; ?>, <br>
+                    Creado el: <?= $task['created_at'] ?? ''; ?>, <br>
+                    <section class="container mx-auto my-auto px-8">
+                        <div class="text-center py-auto <?=StatusEnum::fromValue( $task['status'])->color() ?> my-2">
+                            Estado de la tarea: <?= StatusEnum::fromValue( $task['status'])->label()  ?>, <br>
+                        </div>
+                    </section>
+                    
+                   
+                    <section class="container mx-auto my-auto px-8">
+                        <div class="text-center py-auto">
+                            <p class="bg-blue-200 my-2">
+                                <a href="<?= $this->baseUrl . '/task/edit/' . '?id=' . $task['id']  ?>">
+                                    <button class="bg-blue-400 py-2 px-4 hover:bg-blue-300 rounded">Editar</button>
+                                </a>
+                            </p>
+                            <form method="POST" action="<?= $this->baseUrl . '/task/delete/'  ?>">
+                                <input type="hidden" name="id" value='<?= $task['id']; ?>'>
+                                <p class="bg-blue-200 my-2">
+                                    <button class="bg-blue-400 py-2 px-4 hover:bg-blue-300 rounded">Borrar</button>
+                                </p>
+                            </form>
+                        </div>
+                    </section>
+                <br>
+            </li>
+        <?php endforeach; ?>
+    </section>
+       
+</main>
+
+
+

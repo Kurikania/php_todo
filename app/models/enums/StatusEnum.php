@@ -9,12 +9,23 @@ enum StatusEnum: int
     public function label(): string
     {
         return match($this) {
-            static::TODO => 'To do',
-            static::IN_PROGRESS => 'Active',
-            static::DONE => 'Done',
+            static::TODO => 'Pendiente',
+            static::IN_PROGRESS => 'En ejecución',
+            static::DONE => 'Hecho',
             static::CANCELLED => 'Canceled by user',
         };
     }
+
+    public function color(): string
+    {
+        return match($this) {
+            static::TODO => 'bg-red-200',
+            static::IN_PROGRESS => 'bg-yellow-200',
+            static::DONE => 'bg-green-200',
+            static::CANCELLED => 'bg-gray-200',
+        };
+    }
+
     public static function fromValue(string $value): StatusEnum
     {
         foreach (self::cases() as $status) {

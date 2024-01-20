@@ -1,10 +1,12 @@
 [
     {
         "id": 4,
-        "title": "Dar de comer al gato",
+        "title": "Dar de comer al perro",
         "user_id": 1,
-        "created_at": "2024-01-15 01:05:30",
-        "status": 1
+        "username": "",
+        "description": "                                            Lorem fistrum est\u00e1 la cosa muy malar va ust\u00e9 muy cargadoo diodeno tiene musho peligro me cago en tus muelas tiene musho peligro benemeritaar quietooor. Ese pedazo de a gramenawer qu\u00e9 dise usteer me cago en tus muelas te va a has\u00e9 pupitaa ahorarr a wan. Por la gloria de mi madre de la pradera al ataquerl me cago en tus muelas pupita benemeritaar est\u00e1 la cosa muy malar al ataquerl ese pedazo de. Sexuarl tiene musho peligro condemor por la gloria de mi madre qu\u00e9 dise usteer hasta luego Lucas ese pedazo de llevame al sircoo. Sexuarl la caidita te voy a borrar el cerito diodeno te va a has\u00e9 pupitaa por la gloria de mi madre. La caidita la caidita benemeritaar no te digo trigo por no llamarte Rodrigor jarl. Ese que llega sexuarl benemeritaar apetecan quietooor la caidita apetecan diodenoo no te digo trigo por no llamarte Rodrigor condemor tiene musho peligro.                     ",
+        "created_at": "2024-01-15 01:05:46",
+        "status": 4
     },
     {
         "id": 5,
@@ -12,5 +14,59 @@
         "user_id": 1,
         "created_at": "2024-01-15 01:05:46",
         "status": 2
+    },
+    {
+        "id": 6,
+        "title": "Acabar el sprint 3",
+        "user_id": 2,
+        "created_at": "2024-01-17 17:52:46",
+        "status": 3
+    },
+    {
+        "id": 7,
+        "title": "cosas para hacer",
+        "user_id": 1,
+        "username": "",
+        "description": "                ",
+        "created_at": "2024-01-19 04:03:58",
+        "completed_at": "2024-01-20 12:19:29",
+        "status": 3
+    },
+    {
+        "id": 8,
+        "title": "prueba de descripcion",
+        "user_id": 1,
+        "username": "",
+        "description": "                    Esto es una descripci\u00f3n            ",
+        "created_at": "2024-01-19 05:33:18",
+        "status": 2
+    },
+    {
+        "id": 9,
+        "title": "Ordenar",
+        "user_id": 1,
+        "username": "Katia",
+        "description": "          Poner orden en todas mis cosas      ",
+        "created_at": "2024-01-20 11:01:27",
+        "completed_at": "2024-01-20 11:07:21",
+        "status": 3
+    },
+    {
+        "title": "Cambiar colores",
+        "user_id": 1,
+        "username": "Alberto Gonz\u00e1lez",
+        "description": "Debemos averiguar como cambiar los colores seg\u00fan el estado de la tarea.",
+        "created_at": "2024-01-20 11:40:52",
+        "status": 1,
+        "id": 10
+    },
+    {
+        "title": "Hacer pull request",
+        "user_id": 1,
+        "username": "Alberto Gonz\u00e1lez",
+        "description": "Hacer el pull Request en el sitio correcto.",
+        "created_at": "2024-01-20 04:52:14",
+        "status": 1,
+        "id": 11
     }
 ]

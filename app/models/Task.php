@@ -7,6 +7,8 @@ class Task
     public int $id;
     public string $title;
     public int $user_id = 1;
+    public string $username;
+    public string $description;
     public string $created_at;
     public string $completed_at;
     public StatusEnum $status;
@@ -33,7 +35,7 @@ class Task
     }
 
     public function save() {
-        if(!empty($this->id)) {
+        if(empty($this->id)) {
             $this->created_at =  date('Y-m-d h:i:s');
         }
         if ( $this->status === StatusEnum::DONE) {

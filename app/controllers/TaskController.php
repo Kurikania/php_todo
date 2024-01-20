@@ -26,6 +26,8 @@ class TaskController extends ApplicationController
             print_r($_POST);
             // populate object, don't save from post directly
             $task->title = $_POST['title'];
+            $task->username = $_POST['username'];
+            $task->description = $_POST['description'];
             $task->status = StatusEnum::fromValue((int) $_POST['status']);
             $task->save();
             $this->redirect('/');
@@ -37,14 +39,19 @@ class TaskController extends ApplicationController
         $taskId = $this->_getParam('id');
         // find task
         $task = new Task();
+        
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $task = $task->fetchOne((int) $taskId);
             $this->view->__set('task', $task);
         } else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // implement save
             $task->id = $_POST['id'];
+            $task->username = $_POST['username'];
             $task->title = $_POST['title'];
+            $task->created_at = $_POST['created_at'];
             $task->status = StatusEnum::fromValue((int) $_POST['status']);
+            // todo add description and in class task too
+            $task->description = $_POST['description'];
             $task->save();
             $this->redirect('/');
         }
@@ -52,11 +59,12 @@ class TaskController extends ApplicationController
 
     public function deleteAction()
     {
-        $taskId = $this->_getParam('id');
-        $task = new Task();
+        
         // make sure there is the task
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-             $task->delete($taskId);
+            $taskId = $_POST['id'];
+            $task = new Task();
+            $task->delete($taskId);
 
             $this->redirect('/');
         }
