@@ -16,7 +16,13 @@
                     </div>
                     Nombre de Usuario: <?= $task['username'] ?? ''; ?>, <br>
                     Creado el: <?= $task['created_at'] ?? ''; ?>, <br>
-                    Estado de la tarea: <?= StatusEnum::fromValue( $task['status'])->label()  ?>, <br>
+                    <section class="container mx-auto my-auto px-8">
+                        <div class="text-center py-auto <?=PonerColor(StatusEnum::fromValue( $task['status'])) ?> my-2">
+                            Estado de la tarea: <?= StatusEnum::fromValue( $task['status'])->label()  ?>, <br>
+                        </div>
+                    </section>
+                    
+                   
                     <section class="container mx-auto my-auto px-8">
                         <div class="text-center py-auto">
                             <p class="bg-blue-200 my-2">
@@ -39,4 +45,21 @@
        
 </main>
 
+<?php
+function PonerColor($status)
+{
+    switch ($status) {
+        case StatusEnum::fromValue(1):
+            return 'bg-red-200'; 
+        case StatusEnum::fromValue(2):
+            return 'bg-yellow-200'; 
+        case StatusEnum::fromValue(3):
+            return 'bg-green-200'; 
+        case StatusEnum::fromValue(4):
+            return 'bg-gray-200'; 
+        default:
+            return 'bg-gray-200'; 
+    }
+}
+?>
 
