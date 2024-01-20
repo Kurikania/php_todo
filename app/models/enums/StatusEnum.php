@@ -15,6 +15,17 @@ enum StatusEnum: int
             static::CANCELLED => 'Canceled by user',
         };
     }
+
+    public function color(): string
+    {
+        return match($this) {
+            static::TODO => 'bg-red-200',
+            static::IN_PROGRESS => 'bg-yellow-200',
+            static::DONE => 'bg-green-200',
+            static::CANCELLED => 'bg-gray-200',
+        };
+    }
+
     public static function fromValue(string $value): StatusEnum
     {
         foreach (self::cases() as $status) {
