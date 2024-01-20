@@ -22,12 +22,7 @@
   <section class="container mx-auto px-4">
   <form action="<?= '?id=' . $task['id'] ?>" method="POST" class="bg-white rounded px-4 pt-6 pb-8 mb-4">
   <input id="id" type="hidden" value="<?= $task['id']?>" name="id">
-    <div class="bg-blue-200 mb-4 text-center">
-      <label class="bg-blue-400 mb-4 px-2 rounded" for="username">
-        Nombre de Usuario
-      </label>
-      <input name="username" value="<?= $task['username'] ?? ''; ?>" class="text-center shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Nombre de Usuario">
-    </div>
+    
     <div  class="bg-blue-200 mb-4 text-center">
       <label class="bg-blue-400 mb-4 px-2 rounded" for="task-title">
         Título de la Tarea
@@ -41,6 +36,12 @@
       <textarea name="description"  class="text-center shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="task-description" placeholder="Descripción de la Tarea">
           <?= $task['description'] ?? ''; ?>
       </textarea>
+    </div>
+    <div class="bg-blue-200 mb-4 text-center">
+      <label class="bg-blue-400 mb-4 px-2 rounded" for="username">
+        Nombre de Usuario
+      </label>
+      <input name="username" value="<?= $task['username'] ?? ''; ?>" class="text-center shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Nombre de Usuario">
     </div>
     <div class="bg-blue-200 mb-4 text-center">
       <label class="bg-blue-400 mb-4 px-2 rounded" for="task-status">

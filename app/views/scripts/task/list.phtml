@@ -11,9 +11,10 @@
                 <br>
                     Tarea ID: <?= $task['id']; ?>, <br>
                     Título: <?= $task['title']; ?>, <br>
-                    Usuario ID: <?= $task['user_id'] ?? ''; ?>, <br>
+                    <div class="container mx-auto px-8">
+                        Descripcion: <?= $task['description'] ?? ''; ?>, <br>
+                    </div>
                     Nombre de Usuario: <?= $task['username'] ?? ''; ?>, <br>
-                    Descripcion: <?= $task['description'] ?? ''; ?>, <br>
                     Creado el: <?= $task['created_at'] ?? ''; ?>, <br>
                     Estado de la tarea: <?= StatusEnum::fromValue( $task['status'])->label()  ?>, <br>
                     <section class="container mx-auto my-auto px-8">
