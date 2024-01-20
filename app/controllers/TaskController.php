@@ -26,6 +26,7 @@ class TaskController extends ApplicationController
             print_r($_POST);
             // populate object, don't save from post directly
             $task->title = $_POST['title'];
+            $task->username = $_POST['username'];
             $task->description = $_POST['description'];
             $task->status = StatusEnum::fromValue((int) $_POST['status']);
             $task->save();
@@ -45,6 +46,7 @@ class TaskController extends ApplicationController
         } else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // implement save
             $task->id = $_POST['id'];
+            $task->username = $_POST['username'];
             $task->title = $_POST['title'];
             $task->created_at = $_POST['created_at'];
             $task->status = StatusEnum::fromValue((int) $_POST['status']);
